@@ -52,9 +52,9 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      setLoading(true);
       await schema.validate({ email, password }, { abortEarly: false });
       setTimeout(async () => {
+        setLoading(true);
         const testData = {
           email,
           password,
@@ -62,10 +62,12 @@ const Login = () => {
         const res = await callLoginUser(testData);
         console.log("check res login ", res);
         if (res?.data?.user?.email) {
+          setLoading(true);
           toast.success("Thành Công");
           localStorage.setItem("currentUser", res?.data?.access_token);
           localStorage.setItem("dataUser", JSON.stringify(res?.data?.user));
           // localStorage.getItem("userName"|| "");
+
           navigate("/");
         } else {
           toast.error(`${res}`);
@@ -75,6 +77,7 @@ const Login = () => {
     } catch (error) {
       if (error instanceof yup.ValidationError) {
         // Handle Yup validation errors
+        setLoading(false);
         const validationErrors = {};
         error.inner.forEach((err) => {
           validationErrors[err.path] = err.message;
@@ -84,7 +87,7 @@ const Login = () => {
         toast.error("Please fill in all required fields.");
       } else {
         toast.error(`Error: ${error.message}`);
-        // setLoading(false);
+        setLoading(false);
       }
     }
   };
