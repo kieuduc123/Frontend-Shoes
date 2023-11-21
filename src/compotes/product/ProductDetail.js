@@ -39,22 +39,22 @@ const ProductDetail = () => {
   }, [id]);
 
 
-  // const handleCart = async (item) => {
-  //   const res = await createCart(`userId=${user.id}&product_id=${item.id}`);
-  //   if (res.status === 200) {
-  //     await fetchGetCart();
-  //     toast.success("Thành Công !");
-  //     navigate("/cart");
-  //   } else  {
-  //     toast.error("Bạn chưa đăng nhập");
-  //     navigate("/login")
-  //   }
+  const handleCart = async (item) => {
+    const res = await createCart(`userId=${user.id}&product_id=${item.id}`);
+    if (res.status === 200) {
+      await fetchGetCart();
+      toast.success("Thành Công !");
+      navigate("/cart");
+    } else  {
+      toast.error("Bạn chưa đăng nhập");
+      navigate("/login")
+    }
     
-  // };
+  };
 
   const handleAddCart = async (item) => {
     const res = await createCart(`userId=${user.id}&product_id=${item.id}`);
-    // console.log("check res create ---", res);
+    console.log("check res create ---", res);
     if (res.status === 200) {
       await fetchGetCart();
       toast.success("Thành Công !");
@@ -97,7 +97,7 @@ const ProductDetail = () => {
               <div className="row g-3" data-aos="fade-right">
                 <div className="col-12 d-flex     justify-content-center">
                   <picture className="picture">
-                    <img className="img" src={product.thumbnail} alt="" />
+                    <img className="img" src={product.thumbnail || []} alt="" />
                   </picture>
                 </div>
               </div>
@@ -249,11 +249,11 @@ const ProductDetail = () => {
                     </div>
                   </div>
                   <div className="d-flex">
-                    {/* <button
+                    <button
                       className=" bynow btn btn-dark w-100 mt-4 mr- mb-0 hover-lift-sm hover-boxshadow mr-4"
                       onClick={() => handleCart(product)}>
                       By It Now
-                    </button> */}
+                    </button>
                     <button
                       className="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow"
                       onClick={() => handleAddCart(product)}>

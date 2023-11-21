@@ -80,24 +80,24 @@ const Products = () => {
           </button>
           <button
             className="btn btn-outline-dark text-muted"
-            onClick={() => setFilter("television")}>
-            television
+            onClick={() => setFilter("Trendy")}>
+            Trendy
           </button>
           <button
             className="btn btn-outline-dark text-muted"
-            onClick={() => setFilter("fashion")}>
-            fashion
+            onClick={() => setFilter("Fashion")}>
+            Fashion
           </button>
           <button
             className="btn btn-outline-dark text-muted"
-            onClick={() => setFilter("smartphone")}>
-            smartphone
+            onClick={() => setFilter("Trending")}>
+            Trending
           </button>
-          <button
+          {/* <button
             className="btn btn-outline-dark text-muted"
             onClick={() => setFilter("electronics")}>
             Electronics
-          </button>
+          </button> */}
         </div>
       </>
     );

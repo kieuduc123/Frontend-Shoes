@@ -43,7 +43,7 @@ const Cart = () => {
     // }
     setLoading(false);
   };
-  localStorage.setItem("cart", JSON.stringify(cart));
+  // localStorage.setItem("cart", JSON.stringify(cart));
 
   useEffect(() => {
     fetchGetCart();
@@ -221,7 +221,7 @@ const Cart = () => {
             <form>
               <p>SHIPPING</p>
               <select>
-                <option className="text-muted">Standard-Delivery- $5.00</option>
+                <option className="text-muted">VAT 10%</option>
               </select>
               <p>GIVE CODE</p>
               <input id="code" placeholder="Enter your code" />

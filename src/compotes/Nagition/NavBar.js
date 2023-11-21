@@ -26,7 +26,7 @@ const handleLogout = async () => {
       toast.success('Đã đăng xuất thành công');
       localStorage.removeItem("dataUser");
       localStorage.removeItem("currentUser");
-      // localStorage.removeItem("cart");
+      localStorage.removeItem("cart");
       navigate("/");
     } else {
       toast.error('Đăng xuất không thành công');
