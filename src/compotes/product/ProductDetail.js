@@ -9,27 +9,61 @@ import Api from "../../sever/Api";
 import url from "../../sever/url";
 import ProductRelated from "./ProductRelated";
 import { createCart, getCart } from "sever/service";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
+
+const LoadingOverlay = () => {
+  return (
+    <div className="container-fluid mt-5">
+    <div className="row" >
+       <div className="col-lg-7">
+          <Skeleton height={550}></Skeleton>
+        </div>
+        {/* <div className="col-lg-5">
+          <Skeleton height={550}></Skeleton>
+        </div> */}
+       
+    </div>
+    </div>
+  );
+};
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [loading,setLoading]  = useState(false)
   const [product, setProduct] = useState({
     category: {},
   });
-  const user = JSON.parse(localStorage.getItem("dataUser")) || {};
+
   // const carts = JSON.parse(localStorage.getItem("cart")) || [];
 
   // const [loading, setLoading] = useState(false);
+  const user = JSON.parse(localStorage.getItem("dataUser")) || {};
+  const accessToken = localStorage.getItem("currentUser");
+
   const fetchGetCart = async () => {
-    const res = await getCart(user.id);
-    localStorage.setItem("cart", JSON.stringify(res.data));
+    try{
+      const res = await getCart(user.id,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }); localStorage.setItem("cart", JSON.stringify(res.data) || []);
+        console.log("fetchGetCart",res)
+    }catch (error) {
+      console.error("Error fetching cart:", error);
+      // Xử lý lỗi ở đây nếu cần thiết
+    }
   };
 
   const lisProduct = async () => {
     try {
+      setLoading(true);
       const rs = await Api.get(url.PRODUCT.DETAIL + `?id=${id}`);
       setProduct(rs.data);
-      // setLoading(false)
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -39,10 +73,19 @@ const ProductDetail = () => {
   }, [id]);
 
 
+  // const carts = JSON.parse(localStorage.getItem("cart") , []);
+
   const handleCart = async (item) => {
-    const res = await createCart(`userId=${user.id}&product_id=${item.id}`);
+    const res = await createCart(`userId=${user.id}&product_id=${item.id}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
     if (res.status === 200) {
       await fetchGetCart();
+      const carts =  JSON.parse(localStorage.getItem("cart") || '[]');
       toast.success("Thành Công !");
       navigate("/cart");
     } else  {
@@ -53,10 +96,15 @@ const ProductDetail = () => {
   };
 
   const handleAddCart = async (item) => {
-    const res = await createCart(`userId=${user.id}&product_id=${item.id}`);
-    console.log("check res create ---", res);
+    const res = await createCart(`userId=${user.id}&product_id=${item.id}` ,{
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
     if (res.status === 200) {
       await fetchGetCart();
+      const carts =  JSON.parse(localStorage.getItem("cart") || '[]');
       toast.success("Thành Công !");
     } else {
       toast.error("Bạn chưa đăng nhập");
@@ -89,14 +137,19 @@ const ProductDetail = () => {
             </nav>
           </div>
         </div>
+       
+        {loading &&   <LoadingOverlay/>}
         <div className="container-fluid mt-5">
           <div className="row g-9" data-sticky-container>
             {/* { <Loading />} */}
             {/* <!-- Product Images--> */}
+            {/* {loading &&   <LoadingOverlay/>} */}
             <div className="col-12 col-md-6 col-xl-7">
               <div className="row g-3" data-aos="fade-right">
                 <div className="col-12 d-flex     justify-content-center">
+                
                   <picture className="picture">
+
                     <img className="img" src={product.thumbnail || []} alt="" />
                   </picture>
                 </div>
@@ -146,7 +199,7 @@ const ProductDetail = () => {
                   <div className="d-flex justify-content-between align-items-center">
                     <p className="fs-4 m-0">${product.price}</p>
                   </div>
-                  <div className="border-top mt-4 mb-3 product-option">
+                  {/* <div className="border-top mt-4 mb-3 product-option">
                     <small className="text-uppercase pt-4 d-block fw-bolder">
                       <span className="text-muted">Available Sizes (Mens)</span>{" "}
                       :{" "}
@@ -226,7 +279,7 @@ const ProductDetail = () => {
                         </label>
                       </div>{" "}
                     </div>
-                  </div>
+                  </div> */}
                   <div className="mb-3">
                     <small className="text-uppercase pt-4 d-block fw-bolder text-muted">
                       Available Designs :
@@ -239,13 +292,13 @@ const ProductDetail = () => {
                           alt=""
                         />
                       </picture>
-                      <picture>
+                      {/* <picture>
                         <img
                           className="f-w-24 p-2 bg-light cursor-pointer"
                           src={product.thumbnail}
                           alt={product.name}
                         />
-                      </picture>
+                      </picture> */}
                     </div>
                   </div>
                   <div className="d-flex">

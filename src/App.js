@@ -15,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 import ProductDetail from "./compotes/product/ProductDetail";
 import NotFound from "compotes/Nagition/NotFound";
 import OrderHistory from "compotes/order/OrderHistory";
+import Contact from "compotes/layout/Contact";
+import OrderStatus from "compotes/order/OrderStatus";
 
 const Products = React.lazy(() => import("./compotes/product/Products"));
 const Fallback = () => {
@@ -35,8 +37,9 @@ function App() {
         </Route>
         <Route path="/cart" element={<Cart></Cart>}></Route>
         <Route path="/checkout" element={<Checkout></Checkout>}></Route>
-        <Route path="/orderhistory"
-          element={<OrderHistory></OrderHistory>}></Route>
+        <Route path="/orderhistory" element={<OrderHistory></OrderHistory>}>    </Route>
+             <Route path="/order-status" element={<OrderStatus></OrderStatus>}></Route>
+      
         <Route
           path="/checkout-payment"
           element={<CheckoutPayment></CheckoutPayment>}></Route>
@@ -48,6 +51,7 @@ function App() {
           path="/forgotten-password"
           element={<ForgottenPassWord></ForgottenPassWord>}></Route>
         <Route path="/otp" element={<PageOTP />}></Route>
+        <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route  path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       </Suspense>

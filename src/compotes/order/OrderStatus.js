@@ -1,49 +1,16 @@
 // import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { orderHistory } from 'sever/service';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+import {  orderStatus } from 'sever/service';
+
 const OrderHistory = () => {
     const [data,setData] = useState([]);
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [text,setText] = useState("")
-    const [ email,setEmail] = useState("");
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-   try{
-    // const testData = {
-    //   email,
-     
-    // };
-    const rs = await axios.post( "https://semester3shoprunner.azurewebsites.net/api/Order/client/cancel-order?orderId=53&reason_cancel=lydohuyorder",
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    setText(rs.data);
-    console.log("settex",rs);
-
-     
-   }
-   catch (error) {
-    console.error('Error:', error);
-   }
-  }
-  const accessToken =  localStorage.getItem("currentUser");
-  // const order = JSON.parse(localStorage.getItem("order"));
-  // console.log("dataordwr",order)
+       
     const fetchData = async () => {
             try {
                 const email = JSON.parse(localStorage.getItem("dataUser")) ;
-              
-                const response = await orderHistory(email.id,
+                const accessToken =  localStorage.getItem("currentUser");
+                const response = await orderStatus(email.id,
                {
                 headers: {
                   "Content-Type": "application/json",
@@ -52,10 +19,9 @@ const OrderHistory = () => {
               });
               setData(response.data);
               console.log("order",response)
-              // localStorage.setItem("order", JSON.stringify(response.data.id) || {});
             } catch (error) {
               console.error('Error:', error);
-              // data([]);
+              data([]);
             }
         }
      useEffect(() => {
@@ -72,7 +38,7 @@ const OrderHistory = () => {
 
     return (
       
-        <div>
+        <div style={{height : "50vh"}}>
         <div className="container contact">
           {/* <div className="row">
             <div className="col">
@@ -103,7 +69,6 @@ const OrderHistory = () => {
                     <th scope="col">Total</th>
                     <th scope="col">Status</th>
                     <th scope="col">Shipping</th>
-                    <th scope="col" className='text-center'>Huỷ</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -116,45 +81,6 @@ const OrderHistory = () => {
                         <td>${data.grand_total}</td>
                         <td>{data.status.name}</td>
                         <td>{data.shipping.name}</td>
-                        <td>
-
-                        <Button variant="primary" onClick={handleShow}>
-                          Huỷ
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Lí Do Huỷ</Form.Label>
-           
-              <Form.Control
-                type="text"
-                placeholder="Lí Do Huỷ"
-                onChange={(e) => setEmail(e.target.value)}
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-            </Form.Group>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" type='submit' >
-            Save Changes
-          </Button>
-        </Modal.Footer>
-          </Form>
-        </Modal.Body>
-      </Modal>
-      </td>
                       </tr>
                     )
                  }
@@ -183,10 +109,10 @@ const OrderHistory = () => {
       <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
         <div class="position-sticky">
           <div class="list-group list-group-flush mx-3 mt-4">
-            <a href="/orderhistory" class="list-group-item list-group-item-action py-2 ripple active">
+            <a href="/orderhistory" class="list-group-item list-group-item-action py-2 ripple ">
               <i class="fas fa-chart-area fa-fw me-3"></i><span>Order History</span>
             </a>
-            <a href="/order-status" class="list-group-item list-group-item-action py-2 ripple " aria-current="true">
+          <a href="/order-status" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
               <i class="fas fa-tachometer-alt fa-fw me-3 active "></i><span>Order Status</span>
             </a>
             <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i

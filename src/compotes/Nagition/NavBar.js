@@ -1,17 +1,18 @@
 import React from "react";
 import LogoPage from "./LogoPage";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 import Search from "compotes/search/Search";
 import { logOut } from "sever/service";
 import { toast } from "react-toastify";
 
+
 const NavBar = () => {
   const navigate = useNavigate();
-  const carts = JSON.parse(localStorage.getItem("cart")) || [];
-  const email = JSON.parse(localStorage.getItem("dataUser")) || "";
+  const carts =  JSON.parse(localStorage.getItem("cart") || '[]');
+  const email = JSON.parse(localStorage.getItem("dataUser") ,"");
 const handleLogout = async () => {
   try {
-    const email = JSON.parse(localStorage.getItem("dataUser")) || "";
+    const email = JSON.parse(localStorage.getItem("dataUser"), "");
      const accessToken = localStorage.getItem("currentUser");
     const response = await logOut(email.id,
       {
@@ -24,9 +25,9 @@ const handleLogout = async () => {
     console.log("logOut",response)
     if (response.status === 200) {
       toast.success('Đã đăng xuất thành công');
-      localStorage.removeItem("dataUser");
-      localStorage.removeItem("currentUser");
-      localStorage.removeItem("cart");
+      localStorage.clear();
+      // localStorage.removeItem("currentUser");
+      // localStorage.removeItem("cart");
       navigate("/");
     } else {
       toast.error('Đăng xuất không thành công');
