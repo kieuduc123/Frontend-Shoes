@@ -28,11 +28,12 @@ const Checkout = () => {
   const [zipCode, setZipCode] = useState(1);
   const [tel, setTel] = useState("");
   const navigate = useNavigate();
+
+
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
     setValue(e.target.value);
   };
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleCreatePayment = useCallback(async () => {
     const values = {
@@ -55,7 +56,7 @@ const Checkout = () => {
   });
   useEffect(() => {
     handleCreatePayment();
-  }, [handleCreatePayment]);
+  }, []);
   return (
     <div className="wrapper-checkout">
       <div className="container-checkout-form">
@@ -94,7 +95,7 @@ const Checkout = () => {
                 rules={[{ required: true, message: "Please enter address" }]}>
                 <Input
                   placeholder="Please enter address"
-                  // value={address}
+                  value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
               </Form.Item>
@@ -107,7 +108,7 @@ const Checkout = () => {
                 <Input
                   type="number"
                   placeholder="Please enter ma code"
-                  // value={zipCode}
+                  value={zipCode}
                   onChange={(e) => setZipCode(e.target.value)}
                 />
               </Form.Item>
@@ -121,7 +122,7 @@ const Checkout = () => {
                 rules={[{ required: true, message: "Please enter url tel" }]}>
                 <Input
                   placeholder="Please enter tel"
-                  // value={tel}
+                  value={tel}
                   onChange={(e) => setTel(e.target.value)}
                 />
               </Form.Item>

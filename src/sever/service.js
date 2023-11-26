@@ -81,6 +81,9 @@ export const createPaymentOrder = async (user) => {
   return res;
 };
 
+
+///order 
+
 export const orderHistory = async (id) => {
   const res = await axios.get(`https://semester3shoprunner.azurewebsites.net/api/Order/client/status-order-client?userId=${id}`
   );
@@ -92,4 +95,10 @@ export const orderStatus = async (id) => {
   const res = await axios.get(`https://semester3shoprunner.azurewebsites.net/api/Order/client/history-order?userId=${id}`
   );
   return  res;
+}
+
+export const  orderCannel = async (param) => {
+const res =await axios.post(`https://semester3shoprunner.azurewebsites.net/api/Order/client/cancel-order?${param}`);
+return res;
+
 }

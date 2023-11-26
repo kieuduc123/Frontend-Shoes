@@ -13,6 +13,7 @@ const PageOTP = () => {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
     setEmail(localStorage.getItem("emailOTp") || " ");
   }, []); // Thực hiện một lần khi component được tạo
@@ -21,7 +22,6 @@ const PageOTP = () => {
     e.preventDefault();
     const query = `otp=${otp}&email=${email}`;
     try {
-      // setLoading(true);
       const res = await callUserOTP(query);
       if (res?.data) {
         toast.success("Thành công");
