@@ -8,20 +8,20 @@ import { decQuantity, deleteCart, getCart, incQuantity } from "sever/service";
 const LoadingOverlay = () => {
   return (
     <div
-      // style={{
-      //   position: "fixed",
-      //   top: 0,
-      //   left: 0,
-      //   width: "100%",
-      //   height: "100%",
-      //   backgroundColor: "rgba(255, 255, 255, 0.8)", // Màu nền với độ trong suốt
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      //   zIndex: 9999,
-      // }}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(255, 255, 255, 0.8)", // Màu nền với độ trong suốt
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 9999,
+      }}
       >
-    <span class="loader"></span>
+    {/* <span class="loader"></span> */}
     </div>
   );
 };

@@ -3,7 +3,10 @@ import Api from "sever/Api";
 import url from "sever/url";
 import { NavLink, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const ProductRelated = () => {
   const { id } = useParams();
@@ -22,7 +25,18 @@ const ProductRelated = () => {
     relatedProduct();
   }, id);
   return (
-    <Swiper spaceBetween={50} slidesPerView={4} Autoplay="true">
+    <Swiper
+    className="swiper-container overflow-hidden overflow-lg-visible"
+    spaceBetween={25}
+    slidesPerView={4}
+centeredSlides={true}
+autoplay={{
+delay: 1500,
+disableOnInteraction: false,
+}}
+navigation={true}
+modules={[Autoplay, Pagination, Navigation]}
+>
       <div className="swiper-wrapper">
         {related.map((i, k) => {
           return (

@@ -28,37 +28,18 @@ const OrderHistory = () => {
         fetchData();
      },[]) ;
 
-     if (!data || data.length === 0) {
-      return (
-        <div className="cart d-flex justify-content-center align-items-center">
-          Order Is Empty
-        </div>
-      );
-    }
+    //  if (!data || data.length === 0) {
+    //   return (
+    //     // <div className="cart d-flex justify-content-center align-items-center">
+    //     //   Order Is Empty
+    //     // </div>
+    //   );
+    // }
 
     return (
       
         <div style={{height : "50vh"}}>
         <div className="container contact">
-          {/* <div className="row">
-            <div className="col">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li className="breadcrumb-item">
-                    <NavLink to="/">Home</NavLink>
-                  </li>
-                  <li className="breadcrumb-item active" aria-current="page">
-                    Order
-                  </li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-          <div className="row text-start">
-            <div className="col">
-              <h3 className="fw-bold">Order Status</h3>
-            </div>
-          </div> */}
           <div className="row">
             <div className="col table-responsive">
               <table class="table table-striped table-borderless">
@@ -90,19 +71,6 @@ const OrderHistory = () => {
               </table>
             </div>
           </div>
-          {/* <div className="row">
-            {Orders.length > visibleOrders && (
-              <div className="col-12">
-                <button
-                  type="button"
-                  onClick={handleLoadMore}
-                  className="btn btn-secondary"
-                >
-                  Load More
-                </button>
-              </div>
-            )}
-          </div> */}
         </div>
    
    
@@ -127,19 +95,10 @@ const OrderHistory = () => {
         </div>
       </nav>
    
-      {/* <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top"> */}
-       
-     
-      {/* </nav> */}
     
 
       </div>
-    
-   
-    // <main style="margin-top: 58px;">
-    //   <div class="container pt-4"></div>
-    // </main>
-    
+ 
     );
 };
 

@@ -26,8 +26,8 @@ const handleLogout = async () => {
     if (response.status === 200) {
       toast.success('Đã đăng xuất thành công');
       localStorage.clear();
-      // localStorage.removeItem("currentUser");
-      // localStorage.removeItem("cart");
+      localStorage.removeItem("currentUser");
+      localStorage.removeItem("cart");
       navigate("/");
     } else {
       toast.error('Đăng xuất không thành công');
@@ -65,16 +65,16 @@ const handleLogout = async () => {
               </li>
               {/* <!-- /Navbar Search-->
                         <!-- Navbar Login--> */}
-              <li className="ms-1 d-none d-lg-inline-block ">
+              <li className="ms-1 d-lg-inline-block ">
                 {email ? (
-
                   <div class="dropdown">
                   <button class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {email.fullname}
                   </button>
                   <ul class="dropdown-menu border border-secondary ">
-                    <li className="border-bottom border-secondary p-1"><NavLink class="dropdown-item " onClick={handleLogout}> Log Out</NavLink></li>
-                    <li className="p-1"><NavLink class="dropdown-item" to="/orderhistory">Order </NavLink></li>
+                    <li className="border-bottom border-secondary p-1"><NavLink class="dropdown-item " to='/profile'>Profile</NavLink></li>
+                    <li className="p-1 border-bottom border-secondary"><NavLink class="dropdown-item " to="/orderhistory">Order </NavLink></li>
+                    <li className=" p-1"><NavLink class="dropdown-item " onClick={handleLogout}> Log Out</NavLink></li>
                   </ul>
                 </div>
                 ) : (

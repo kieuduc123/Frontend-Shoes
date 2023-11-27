@@ -1,4 +1,4 @@
-import React, { useEffect,useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 // import NavBarCart from "../Nagition/NavBarCart";
 // import { divide } from "lodash";
@@ -25,17 +25,16 @@ const Checkout = () => {
   const [value, setValue] = useState(1);
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
-  const [zipCode, setZipCode] = useState(1);
+  const [zipCode, setZipCode] = useState(2);
   const [tel, setTel] = useState("");
   const navigate = useNavigate();
-
 
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
     setValue(e.target.value);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleCreatePayment = useCallback(async () => {
+  const handleCreatePayment = async () => {
     const values = {
       userId: user.id,
       consignee_name: fullName,
@@ -44,26 +43,20 @@ const Checkout = () => {
       tel: tel,
       paymentMethodId: value,
     };
-    const res = await createPaymentOrder(values)
-      console.log("payment",res);
+    const res = await createPaymentOrder(values);
+    console.log("payment", res);
     if (res.status === 200) {
       message.success("Thành Công !");
-      navigate("/orderhistory")
-    }
-     else {
+      navigate("/orderhistory");
+    } else {
       message.error("Thất Bại");
     }
-  });
-  useEffect(() => {
-    handleCreatePayment();
-  }, []);
+  };
+
   return (
     <div className="wrapper-checkout">
       <div className="container-checkout-form">
-        <Form
-          onSubmit={handleCreatePayment}
-          layout="vertical"
-          hideRequiredMark>
+        <Form onSubmit={handleCreatePayment} layout="vertical" hideRequiredMark>
           <Row gutter={16}>
             <Col span={24}>
               <Form.Item
@@ -127,7 +120,7 @@ const Checkout = () => {
                 />
               </Form.Item>
             </Col>
-         
+
             <Radio.Group onChange={onChange} value={value}>
               <Col span={24}>
                 <Radio value={1}>Thanh toán tại nhà</Radio>
@@ -140,6 +133,7 @@ const Checkout = () => {
           <Button
             style={{ marginTop: "30px" }}
             htmlType="submit"
+            onClick={() => handleCreatePayment()}
             type="primary">
             Thanh toán
           </Button>

@@ -13,19 +13,18 @@ const HomePage = () => {
             <div classNameName="mt-0 overflow-hidden ">
                 
         <section className="vh-75 vh-lg-60  container-fluid rounded overflow-hidden" data-aos="fade-in">
-                        <div
-                            className="swiper-container overflow-hidden overflow-lg-visible "
-                            spaceBetween={0}
-                        slidesPerView={1}
-                        speed={1000}
+        <div
+                            className="swiper-container overflow-hidden overflow-lg-visible"
+                            spaceBetween={25}
+                            slidesPerView={4}
         centeredSlides={true}
         autoplay={{
-          delay: 1000,
+          delay: 1500,
           disableOnInteraction: false,
         }}
-        //  navigation={true}
+         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-                    >
+            >
                         <div className=''>
               <div className="swiper-wrapper slider-banner">
             
@@ -244,9 +243,7 @@ const HomePage = () => {
                           </SwiperSlide>
                           <SwiperSlide className="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div className="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="300">
-                                <picture className="d-block mb-4 img-clip-shape-one">
-                                    <img className="w-100" title="" src="./assets/images/categories/products-4.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                </picture>
+                                
                                 <p className="title-small mb-2 text-muted">Waterproof &amp; Lightweight</p>
                                 <h4 className="lead fw-bold">Jackets &amp; Coats</h4>
                                 <NavLink to="/products" className="btn btn-psuedo align-self-start">Shop Now</NavLink>
@@ -254,9 +251,7 @@ const HomePage = () => {
                           </SwiperSlide>
                           <SwiperSlide className="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div className="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="400">
-                                <picture className="d-block mb-4 img-clip-shape-one">
-                                    <img className="w-100" title="" src="./assets/images/categories/products-5.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                </picture>
+                                
                                 <p className="title-small mb-2 text-muted">Keep Warm</p>
                                 <h4 className="lead fw-bold">Hats &amp; Beanies</h4>
                                 <NavLink to="/products" className="btn btn-psuedo align-self-start">Shop Now</NavLink>
@@ -264,9 +259,7 @@ const HomePage = () => {
                           </SwiperSlide>
                           <SwiperSlide className="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div className="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="500">
-                                <picture className="d-block mb-4 img-clip-shape-one">
-                                    <img className="w-100" title="" src="./assets/images/categories/products-6.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                </picture>
+                                
                                 <p className="title-small mb-2 text-muted">20% Off</p>
                                 <h4 className="lead fw-bold">Summer Sale</h4>
                                 <NavLink to="/products" className="btn btn-psuedo align-self-start">Shop Now</NavLink>
@@ -274,9 +267,7 @@ const HomePage = () => {
                           </SwiperSlide>
                           <SwiperSlide className="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div className="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="600">
-                                <picture className="d-block mb-4 img-clip-shape-one">
-                                    <img className="w-100" title="" src="./assets/images/categories/products-1.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                </picture>
+                               
                                 <p className="title-small mb-2 text-muted">Just Arrived</p>
                                 <h4 className="lead fw-bold">Latest Kicks</h4>
                                 <NavLink to="/products" className="btn btn-psuedo align-self-start">Shop Now</NavLink>
@@ -284,9 +275,7 @@ const HomePage = () => {
                           </SwiperSlide>
                           <SwiperSlide className="swiper-slide align-self-stretch bg-transparent h-auto">
                             <div className="me-xl-n4 me-xxl-n5" data-aos="fade-up" data-aos-delay="700">
-                                <picture className="d-block mb-4 img-clip-shape-one">
-                                    <img className="w-100" title="" src="./assets/images/categories/products-8.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                </picture>
+                            
                                 <p className="title-small mb-2 text-muted">Accessories</p>
                                 <h4 className="lead fw-bold">Bags &amp; Rugsacks</h4>
                                 <NavLink to="/products" className="btn btn-psuedo align-self-start">Shop Now</NavLink>
@@ -315,9 +304,7 @@ const HomePage = () => {
                     <NavLink to="/products" className="btn btn-psuedo" role="button">Shop New Arrivals</NavLink>
                 </div>
                 <div className="col-12 col-md-6 position-relative z-index-20 pe-0" data-aos="fade-left">
-                    <picture className="w-50 d-block position-relative z-index-10 border border-white border-4 shadow-lg">
-                        <img className="img-fluid" src="./assets/images/banners/banner-5.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                    </picture>
+                   
                     <picture className="w-60 d-block me-8 mt-n10 shadow-lg border border-white border-4 position-relative z-index-20 ms-auto">
                         <img className="img-fluid" src="./assets/images/banners/banner-6.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
                     </picture>
@@ -330,9 +317,7 @@ const HomePage = () => {
             <div className="pt-7 mb-5 mb-lg-10">
                 <div className="row g-4">
                     <div className="col-12 col-xl-6 position-relative" data-aos="fade-right">
-                        <picture className="position-relative z-index-10">
-                            <img className="w-100 rounded" src="./assets/images/banners/banner-sale.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                        </picture>
+                       
                         <div className="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-index-20">
                             <div className="py-6 px-5 px-lg-10 text-center w-100">
                                 <h2 className="display-1 mb-3 fw-bold text-white"><span className="text-outline-light">Flash</span> Sale</h2>
@@ -345,9 +330,7 @@ const HomePage = () => {
                         <div className="row g-4 justify-content-end">
                             <div className="col-12 col-md-6 d-flex">
                                 <div className="card position-relative overflow-hidden">
-                                    <picture className="position-relative z-index-10 d-block bg-light">
-                                        <img className="w-100 rounded" src="./assets/images/banners/banner-8.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                    </picture>
+                                   
                                     <div className="card-overlay">
                                         <p className="lead fw-bolder mb-2">The Jordan DeltNavLink 2</p>
                                         <NavLink to="/products" className="btn btn-psuedo text-white py-2" role="button">Shop Kicks</NavLink>
@@ -356,9 +339,7 @@ const HomePage = () => {
                             </div>
                             <div className="col-12 col-md-6 d-flex">
                                 <div className="card position-relative overflow-hidden">
-                                    <picture className="position-relative z-index-10 d-block bg-light">
-                                        <img className="w-100 rounded" src="./assets/images/banners/banner-9.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                    </picture>
+                                   
                                     <div className="card-overlay">
                                         <p className="lead fw-bolder mb-2">Latest Mens Shirts</p>
                                         <NavLink to="/products" className="btn btn-psuedo text-white py-2" role="button">Shop New</NavLink>
@@ -367,9 +348,7 @@ const HomePage = () => {
                             </div>
                             <div className="col-12 col-md-6 d-flex">
                                 <div className="card position-relative overflow-hidden">
-                                    <picture className="position-relative z-index-10 d-block bg-light">
-                                        <img className="w-100 rounded" src="./assets/images/banners/banner-10.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                    </picture>
+                                   
                                     <div className="card-overlay">
                                         <p className="lead fw-bolder mb-2">KiiKii Osake Tees</p>
                                         <NavLink to="/products" className="btn btn-psuedo text-white py-2" role="button">Shop T-Shirts</NavLink>
@@ -378,9 +357,7 @@ const HomePage = () => {
                             </div>
                             <div className="col-12 col-md-6 d-flex">
                                 <div className="card position-relative overflow-hidden">
-                                    <picture className="position-relative z-index-10 d-block bg-light">
-                                        <img className="w-100 rounded" src="./assets/images/banners/banner-11.jpg" alt="HTML Bootstrap Template by Pixel Rocket"/>
-                                    </picture>
+                                  
                                     <div className="card-overlay">
                                         <p className="lead fw-bolder mb-2">Multibuy Womens Shirts</p>
                                         <NavLink to="/products" className="btn btn-psuedo text-white py-2" role="button">Shop Sale Items</NavLink>

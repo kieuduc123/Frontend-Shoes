@@ -67,8 +67,8 @@ const Login = () => {
           localStorage.setItem("currentUser", res?.data?.access_token);
           localStorage.setItem("dataUser", JSON.stringify(res?.data?.user));
           // localStorage.getItem("userName"|| "");
-
           navigate("/");
+          window.location.reload()
         } else {
           toast.error(`${res}`);
           setLoading(false);

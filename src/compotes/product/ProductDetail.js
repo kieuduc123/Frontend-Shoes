@@ -85,7 +85,7 @@ const ProductDetail = () => {
     });
     if (res.status === 200) {
       await fetchGetCart();
-      const carts =  JSON.parse(localStorage.getItem("cart") || '[]');
+      // const carts =  JSON.parse(localStorage.getItem("cart") || '[]');
       toast.success("Thành Công !");
       navigate("/cart");
     } else  {
@@ -104,7 +104,7 @@ const ProductDetail = () => {
     });
     if (res.status === 200) {
       await fetchGetCart();
-      const carts =  JSON.parse(localStorage.getItem("cart") || '[]');
+      // const carts =  JSON.parse(localStorage.getItem("cart") || '[]');
       toast.success("Thành Công !");
     } else {
       toast.error("Bạn chưa đăng nhập");

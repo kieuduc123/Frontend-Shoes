@@ -17,6 +17,7 @@ import NotFound from "compotes/Nagition/NotFound";
 import OrderHistory from "compotes/order/OrderHistory";
 import Contact from "compotes/layout/Contact";
 import OrderStatus from "compotes/order/OrderStatus";
+import Profile from "compotes/Profile/Profile";
 
 const Products = React.lazy(() => import("./compotes/product/Products"));
 const Fallback = () => {
@@ -43,10 +44,9 @@ function App() {
         <Route
           path="/checkout-payment"
           element={<CheckoutPayment></CheckoutPayment>}></Route>
-     
-     
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route
           path="/forgotten-password"
           element={<ForgottenPassWord></ForgottenPassWord>}></Route>
