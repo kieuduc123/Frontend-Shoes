@@ -85,8 +85,7 @@ const OrderHistory = () => {
   
 
 
-    // const order = JSON.parse(localStorage.getItem("order"));
-    // console.log("dataordwr",order)
+    //hien thi ra các đơn hàng 
     const fetchData = async () => {
         try {
             const response = await orderHistory(user.id, {
@@ -142,11 +141,8 @@ const OrderHistory = () => {
                                             <td>0</td>
                                             <td>0</td>
                                             <td>
-                                                <Button
-                                                   className="bg-danger" onClick={() => handleShow(data.id)    }
-                                                >
-                                                    Huỷ
-                                                </Button>
+                                                <button  className="bg-danger" onClick={() => handleShow(data.id)    }>     Huỷ
+                                                </button>
 
                                                 <Modal
                                                     show={show}
@@ -216,21 +212,7 @@ const OrderHistory = () => {
                         </table>
                     </div>
                 </div>
-                {/* <div className="row">
-            {Orders.length > visibleOrders && (
-              <div className="col-12">
-                <button
-                  type="button"
-                  onClick={handleLoadMore}
-                  className="btn btn-secondary"
-                >
-                  Load More
-                </button>
-              </div>
-            )}
-          </div> */}
             </div>
-
             <nav
                 id="sidebarMenu"
                 className="collapse d-lg-block sidebar collapse bg-white"
@@ -252,34 +234,9 @@ const OrderHistory = () => {
                             <i className="fas fa-tachometer-alt fa-fw me-3 active "></i>
                             <span>Order Status</span>
                         </a>
-                        {/* <a
-                            href="#"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                        >
-                            <i className="fas fa-lock fa-fw me-3"></i>
-                            <span>Password</span>
-                        </a>
-                        <a
-                            href="#"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                        >
-                            <i className="fas fa-chart-line fa-fw me-3"></i>
-                            <span>Analytics</span>
-                        </a>
-                        <a
-                            href="#"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                        >
-                            <i className="fas fa-chart-pie fa-fw me-3"></i>
-                            <span>SEO</span>
-                        </a> */}
                     </div>
                 </div>
             </nav>
-
-            {/* <nav id="main-navbar" className="navbar navbar-expand-lg navbar-light bg-white fixed-top"> */}
-
-            {/* </nav> */}
         </div>
                </>   
         );
@@ -345,8 +302,6 @@ const OrderHistory = () => {
                                                                 </Form.Label>
 
                                                                 <Form.Control
-                                                                    // type="text"
-                                                                    // value={cancelReason}
                                                                     name="reason_cancel"
                                                                     placeholder="Lí Do Huỷ"
                                                                     onChange={(e) => setCancelReason(e.target.value)}
@@ -427,39 +382,13 @@ const OrderHistory = () => {
                             <i className="fas fa-tachometer-alt fa-fw me-3 active "></i>
                             <span>Order Status</span>
                         </a>
-                        {/* <a
-                            href="#"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                        >
-                            <i className="fas fa-lock fa-fw me-3"></i>
-                            <span>Password</span>
-                        </a>
-                        <a
-                            href="#"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                        >
-                            <i className="fas fa-chart-line fa-fw me-3"></i>
-                            <span>Analytics</span>
-                        </a>
-                        <a
-                            href="#"
-                            className="list-group-item list-group-item-action py-2 ripple"
-                        >
-                            <i className="fas fa-chart-pie fa-fw me-3"></i>
-                            <span>SEO</span>
-                        </a> */}
+                       
                     </div>
                 </div>
             </nav>
-
-            {/* <nav id="main-navbar" className="navbar navbar-expand-lg navbar-light bg-white fixed-top"> */}
-
-            {/* </nav> */}
+         
         </div>
-
-        // <main style="margin-top: 58px;">
-        //   <div className="container pt-4"></div>
-        // </main>
+        
     );
 };
 

@@ -44,7 +44,6 @@ const Cart = () => {
     // }
     setLoading(false);
   };
-  // localStorage.setItem("cart", JSON.stringify(cart));
 
   useEffect(() => {
     fetchGetCart();

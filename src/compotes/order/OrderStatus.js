@@ -27,18 +27,11 @@ const OrderHistory = () => {
      useEffect(() => {
         fetchData();
      },[]) ;
-
-    //  if (!data || data.length === 0) {
-    //   return (
-    //     // <div className="cart d-flex justify-content-center align-items-center">
-    //     //   Order Is Empty
-    //     // </div>
-    //   );
-    // }
+ 
 
     return (
       
-        <div style={{height : "50vh"}}>
+        <div>
         <div className="container contact">
           <div className="row">
             <div className="col table-responsive">
@@ -82,15 +75,7 @@ const OrderHistory = () => {
             </a>
           <a href="/order-status" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
               <i class="fas fa-tachometer-alt fa-fw me-3 active "></i><span>Order Status</span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
-            </a>
-           
+            </a> 
           </div>
         </div>
       </nav>

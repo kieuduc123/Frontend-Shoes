@@ -22,10 +22,10 @@ import { createPaymentOrder } from "sever/service";
 const Checkout = () => {
   const user = JSON.parse(localStorage.getItem("dataUser")) || {};
   // const [form] = Form.useForm();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState();
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
-  const [zipCode, setZipCode] = useState(2);
+  const [zipCode, setZipCode] = useState();
   const [tel, setTel] = useState("");
   const navigate = useNavigate();
 

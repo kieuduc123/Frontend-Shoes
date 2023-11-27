@@ -62,7 +62,7 @@ const Contact = () => {
                 <p>Address: So 8A , Ton That Thuyet , My Dinh Ha Noi</p>
               </div>
               <div class="information">
-                <p>Email: Mandam@fpt.edu.vn</p>
+                <p>Email: ShopRunner@fpt.edu.vn</p>
               </div>
               <div class="information">
                 <p>Phone: 123-456-789</p>

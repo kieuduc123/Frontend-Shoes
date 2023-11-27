@@ -55,7 +55,7 @@ const handleSendOtp = async (e) => {
 
       {/* <!-- Login Form--> */}
       <div className="col col-md-8 col-lg-6 col-xxl-5">
-        <span className="text-muted text-center d-block fw-bolder my-4">
+        <span className="text-muted text-center d-block fw-bolder my-4 fs-1 tex">
           OTP
         </span>
         <form onSubmit={handleLogin}>
@@ -94,7 +94,7 @@ const handleSendOtp = async (e) => {
         <p className="d-block text-center text-muted">
         You have not received the otp code ?{" "}
      
-          <button className="text-muted" onClick={handleSendOtp}>
+          <button className="bg-dark text-white border-0" onClick={handleSendOtp}>
           SEND TO 
           </button>
         </p>

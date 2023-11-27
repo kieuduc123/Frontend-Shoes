@@ -34,16 +34,13 @@ useEffect(() => {
             <div class="container">
     <div class="main-body">
         
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
+          <nav aria-label="breadcrumb" class="main-breadcrumb p-3">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="/">User Profile</li>
             </ol>
           </nav>
-          { Array.isArray(data)  && data.length > 0 &&
-           data.map((data, i)  => {
-            return(
-          <div key={i} class="row gutters-sm">
+          <div class="row gutters-sm">
          
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -52,10 +49,7 @@ useEffect(() => {
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150"/>
                     <div class="mt-5">
                       <h4>{data.fullname}</h4>
-                  
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                      {/* <button class="btn btn-primary">Follow</button>
-                      <button class="btn btn-outline-primary">Message</button> */}
+                   
                     </div>
                   </div>
                 </div>
@@ -66,10 +60,10 @@ useEffect(() => {
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3 ">
-                      <h6 class="mb-0">{data.fullname}</h6>
+                      <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth Valdez
+                    {data.fullname}
                     </div>
                   </div>
                 
@@ -111,20 +105,15 @@ useEffect(() => {
                
                   <div class="row mt-5">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " >Edit</a>
+                      <a class="btn bg-dark text-white" >Edit</a>
                     </div>
                   </div>
                 </div>
               </div>
-      
-
 
 
             </div>
           </div>
-             )
-            })}
-
         </div>
     </div>
             

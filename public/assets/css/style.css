@@ -442,3 +442,8 @@ a:hover {
 .shadow-none {
     box-shadow: none!important;
 }
+.btn-primary {
+  color: #fff;
+  background-color: #6f46ff;
+   border: none!important;
+}
