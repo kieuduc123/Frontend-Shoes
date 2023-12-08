@@ -25,13 +25,14 @@ const PageOTP = () => {
       const res = await callUserOTP(query);
       if (res?.data) {
         toast.success("Thành công");
-        navigate("/");
+        navigate("/login");
         setLoading(false);
       } else {
         setError("Invalid OTP. Please try again."); // Đặt thông báo lỗi nếu OTP không hợp lệ
       }
     } catch (error) {
       setError(`Error: ${error.message}`);
+      toast.error(`Error: ${error.message}`);
     }
   };
 
